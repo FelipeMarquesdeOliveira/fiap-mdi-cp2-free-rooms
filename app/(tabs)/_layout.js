@@ -8,14 +8,12 @@ export default function TabsLayout() {
       screenOptions={{
         tabBarActiveTintColor: Colors.primary,
         tabBarInactiveTintColor: Colors.gray,
-        headerStyle: {
-          backgroundColor: Colors.primary,
-        },
-        headerTintColor: '#fff',
         tabBarStyle: {
           height: 60,
           paddingBottom: 10,
-        }
+        },
+        // Removemos o header padrão (faixa vermelha) para usar o nosso customizado dentro das telas
+        headerShown: false, 
       }}
     >
       <Tabs.Screen
@@ -36,6 +34,9 @@ export default function TabsLayout() {
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="heart" size={size} color={color} />
           ),
+          headerShown: true, // Mantemos o header apenas nas outras telas se desejar
+          headerStyle: { backgroundColor: Colors.primary },
+          headerTintColor: '#fff',
         }}
       />
       <Tabs.Screen
@@ -46,6 +47,9 @@ export default function TabsLayout() {
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="time" size={size} color={color} />
           ),
+          headerShown: true,
+          headerStyle: { backgroundColor: Colors.primary },
+          headerTintColor: '#fff',
         }}
       />
     </Tabs>

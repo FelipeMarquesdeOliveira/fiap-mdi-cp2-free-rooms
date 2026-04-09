@@ -19,8 +19,8 @@ O app foi construído com foco em **UX** e **Performance**, oferecendo uma inter
 - **Context API** (Gerenciamento de estado)
 
 ## Equipe
-- **Felipe Marques de Oliveira** (Desenvolvimento de UI/UX e Filtros)
-- **Gabriel Barros** (Implementação de Sistema de Reservas e Histórico)
+- **RM556319 Felipe Marques de Oliveira** (Desenvolvimento de UI/UX e Filtros)
+- **RM556309 Gabriel Barros** (Implementação de Sistema de Reservas e Histórico)
 
 ## Como Rodar o App
 1. Clone este repositório.

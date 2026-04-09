@@ -2,8 +2,24 @@
 
 **FIAP FreeRooms** é um aplicativo mobile desenvolvido para a disciplina de **Mobile Development & IOT** da FIAP. O projeto visa facilitar a vida acadêmica possibilitando a consulta e reserva de salas de aula e laboratórios no campus.
 
+## Desenvolvido por:
+- **RM556319 Felipe Marques de Oliveira** (Desenvolvimento de UI/UX e Filtros)
+- **RM556309 Gabriel Barros** (Implementação de Sistema de Reservas e Histórico)
+
 ## O Projeto
 O app foi construído com foco em **UX** e **Performance**, oferecendo uma interface intuitiva para que alunos e professores encontrem espaços de estudo ou trabalho de forma rápida e eficiente.
+
+## Telas:
+##1 Tela de Reserva
+<img width="412" height="878" alt="image" src="https://github.com/user-attachments/assets/e12e94b0-08aa-48ed-b284-c60ae303805a" />
+##2 Tela de Favoritos
+<img width="417" height="877" alt="image" src="https://github.com/user-attachments/assets/6355a291-d164-4770-9edc-3f35433a56fe" />
+##3 Tela de Reserva Confirmada
+<img width="414" height="876" alt="image" src="https://github.com/user-attachments/assets/40631e3c-fb53-471b-adf7-e0ddcdd9d1d2" />
+##4 Tela Reservas Feitas
+<img width="414" height="878" alt="image" src="https://github.com/user-attachments/assets/7d48d805-4b9a-4258-ac43-c27686b2d3a6" />
+##5 Tela Historico de Reservas
+<img width="414" height="875" alt="image" src="https://github.com/user-attachments/assets/e3461fa1-176f-480c-bb90-b5b19d1e25ba" />
 
 ## Funcionalidades Implementadas
 - **Busca Avançada**: Filtros por andar (1º ao 7º) e por status (Livre, Ocupada, Manutenção).
@@ -13,14 +29,20 @@ O app foi construído com foco em **UX** e **Performance**, oferecendo uma inter
 - **Reporte de Problemas**: Canal direto para informar falhas técnicas (ar-condicionado, limpeza, etc) através de um modal dedicado.
 - **Persistência de Estado**: Integração com Context API (ferramenta nativa do React utilizada para gerenciamento de estado global), permitindo compartilhar e manter dados como reservas e histórico entre diferentes telas de forma eficiente, sem necessidade de repasse manual de propriedades.
 
+  ## Decisões Técnicas
+
+- **Estrutura**: Organização baseada em arquivos via **Expo Router**, com separação clara entre telas principais (Tabs), detalhes dinâmicos (`[id].js`) e componentes reutilizáveis.
+- **Hooks**:
+  - `useState` e `useEffect`: Controle de estados locais, filtros e fluxos de modais.
+  - `useContext` (`useApp`): Centralização de favoritos e reservas sem repasse de props (*prop drilling*).
+  - `useRouter` / `useLocalSearchParams`: Navegação entre telas e captura de IDs de salas.
+- **Navegação**: Combinação de **Tab Navigation** para acesso rápido às áreas principais e **Stack/Dynamic Navigation** para o fluxo de detalhes e reservas.
+
 ## Stack Tecnológica
 - **React Native** + **Expo**
 - **Expo Router** (Navegação dinâmica)
 - **Context API** (Gerenciamento de estado)
 
-## Equipe
-- **RM556319 Felipe Marques de Oliveira** (Desenvolvimento de UI/UX e Filtros)
-- **RM556309 Gabriel Barros** (Implementação de Sistema de Reservas e Histórico)
 
 ## Como Rodar o App
 1. Clone este repositório.

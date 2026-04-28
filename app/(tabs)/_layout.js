@@ -1,16 +1,20 @@
 import { Tabs } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
-import Colors from '../../constants/Colors';
+import { useTheme } from '../../context/ThemeContext';
 
 export default function TabsLayout() {
+  const { colors } = useTheme();
+
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors.primary,
-        tabBarInactiveTintColor: Colors.gray,
+        tabBarActiveTintColor: colors.primary,
+        tabBarInactiveTintColor: colors.textSecondary,
         tabBarStyle: {
           height: 60,
           paddingBottom: 10,
+          backgroundColor: colors.tabBar,
+          borderTopColor: colors.border,
         },
         headerShown: false, 
       }}
@@ -34,7 +38,7 @@ export default function TabsLayout() {
             <Ionicons name="heart" size={size} color={color} />
           ),
           headerShown: true,
-          headerStyle: { backgroundColor: Colors.primary },
+          headerStyle: { backgroundColor: colors.primary },
           headerTintColor: '#fff',
         }}
       />
@@ -42,16 +46,17 @@ export default function TabsLayout() {
       <Tabs.Screen
         name="history"
         options={{
-          title: 'Aba Reserva',
+          title: 'Minhas Reservas',
           tabBarLabel: 'Reservas',
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="calendar" size={size} color={color} />
           ),
           headerShown: true,
-          headerStyle: { backgroundColor: Colors.primary },
+          headerStyle: { backgroundColor: colors.primary },
           headerTintColor: '#fff',
         }}
       />
     </Tabs>
   );
 }
+

@@ -1,31 +1,33 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import Colors from '../constants/Colors';
+import { useTheme } from '../context/ThemeContext';
 import StatusBadge from './StatusBadge';
 
 const SalaCard = ({ sala, onPress }) => {
+  const { colors } = useTheme();
+
   return (
-    <TouchableOpacity style={styles.card} onPress={onPress}>
+    <TouchableOpacity style={[styles.card, { backgroundColor: colors.surface }]} onPress={onPress}>
       <View style={styles.header}>
-        <Text style={styles.nome}>{sala.nome}</Text>
+        <Text style={[styles.nome, { color: colors.text }]}>{sala.nome}</Text>
         <StatusBadge status={sala.status} />
       </View>
       
       <View style={styles.details}>
         <View style={styles.infoItem}>
-          <Ionicons name="location-outline" size={16} color={Colors.textSecondary} />
-          <Text style={styles.infoText}>Bloco {sala.bloco} - {sala.andar}º Andar</Text>
+          <Ionicons name="location-outline" size={16} color={colors.textSecondary} />
+          <Text style={[styles.infoText, { color: colors.textSecondary }]}>Bloco {sala.bloco} - {sala.andar}º Andar</Text>
         </View>
         
         <View style={styles.infoItem}>
-          <Ionicons name="people-outline" size={16} color={Colors.textSecondary} />
-          <Text style={styles.infoText}>Capacidade: {sala.capacidade}</Text>
+          <Ionicons name="people-outline" size={16} color={colors.textSecondary} />
+          <Text style={[styles.infoText, { color: colors.textSecondary }]}>Capacidade: {sala.capacidade}</Text>
         </View>
       </View>
 
       <View style={styles.footer}>
-        <Ionicons name="chevron-forward" size={20} color={Colors.gray} />
+        <Ionicons name="chevron-forward" size={20} color={colors.textSecondary} />
       </View>
     </TouchableOpacity>
   );
@@ -33,7 +35,6 @@ const SalaCard = ({ sala, onPress }) => {
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: '#fff',
     borderRadius: 12,
     padding: 16,
     marginBottom: 16,
@@ -52,7 +53,6 @@ const styles = StyleSheet.create({
   nome: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: Colors.text,
   },
   details: {
     gap: 8,
@@ -64,7 +64,6 @@ const styles = StyleSheet.create({
   },
   infoText: {
     fontSize: 14,
-    color: Colors.textSecondary,
   },
   footer: {
     alignItems: 'flex-end',
@@ -73,3 +72,4 @@ const styles = StyleSheet.create({
 });
 
 export default SalaCard;
+

@@ -1,18 +1,20 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import Colors from '../constants/Colors';
+import { useTheme } from '../context/ThemeContext';
 
 const StatusBadge = ({ status }) => {
+  const { colors } = useTheme();
+
   const getStatusConfig = () => {
     switch (status) {
       case 'livre':
-        return { label: 'Livre', color: Colors.status.livre };
+        return { label: 'Livre', color: colors.status.livre };
       case 'ocupada':
-        return { label: 'Ocupada', color: Colors.status.ocupada };
+        return { label: 'Ocupada', color: colors.status.ocupada };
       case 'manutencao':
-        return { label: 'Em manutenção', color: Colors.status.manutencao };
+        return { label: 'Em manutenção', color: colors.status.manutencao };
       default:
-        return { label: status, color: Colors.gray };
+        return { label: status, color: colors.textSecondary };
     }
   };
 
@@ -24,6 +26,7 @@ const StatusBadge = ({ status }) => {
     </View>
   );
 };
+
 
 const styles = StyleSheet.create({
   badge: {

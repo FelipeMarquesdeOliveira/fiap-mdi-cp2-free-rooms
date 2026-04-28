@@ -1,28 +1,32 @@
 import React from 'react';
 import { TouchableOpacity, Text, StyleSheet } from 'react-native';
-import Colors from '../constants/Colors';
+import { useTheme } from '../context/ThemeContext';
 
 const BotaoCustomizado = ({ title, onPress, type = 'primary', style }) => {
+  const { colors } = useTheme();
   const isSecondary = type === 'secondary';
   
   return (
     <TouchableOpacity 
       style={[
         styles.button, 
-        isSecondary ? styles.buttonSecondary : styles.buttonPrimary,
+        isSecondary ? 
+          { backgroundColor: 'transparent', borderWidth: 2, borderColor: colors.primary } : 
+          { backgroundColor: colors.primary },
         style
       ]} 
       onPress={onPress}
     >
       <Text style={[
         styles.text, 
-        isSecondary ? styles.textSecondary : styles.textPrimary
+        { color: isSecondary ? colors.primary : '#fff' }
       ]}>
         {title}
       </Text>
     </TouchableOpacity>
   );
 };
+
 
 const styles = StyleSheet.create({
   button: {

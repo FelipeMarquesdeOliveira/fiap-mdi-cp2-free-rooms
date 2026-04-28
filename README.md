@@ -3,8 +3,8 @@
 **FIAP FreeRooms** é um aplicativo mobile desenvolvido para a disciplina de **Mobile Development & IOT** da FIAP. O projeto visa facilitar a vida acadêmica possibilitando a consulta e reserva de salas de aula e laboratórios no campus.
 
 **Desenvolvido por:**
-- **RM556319 Felipe Marques de Oliveira** (Desenvolvimento de UI/UX, Auth Logic e Theme Context)
-- **RM556309 Gabriel Barros** (Implementação de Autenticação, Persistência com AsyncStorage e Validações)
+- **RM556319 Felipe Marques de Oliveira** 
+- **RM556309 Gabriel Barros** 
 
 ---
 

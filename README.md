@@ -2,76 +2,94 @@
 
 **FIAP FreeRooms** é um aplicativo mobile desenvolvido para a disciplina de **Mobile Development & IOT** da FIAP. O projeto visa facilitar a vida acadêmica possibilitando a consulta e reserva de salas de aula e laboratórios no campus.
 
-## 🚀 Checkpoint 2: Novas Funcionalidades
-Nesta segunda fase, focamos em segurança, persistência e experiência do usuário (UX), implementando um sistema completo de autenticação e personalização.
-
-### 🔐 Autenticação e Segurança
-- **Sistema de Login e Cadastro**: Telas dedicadas para acesso seguro ao aplicativo.
-- **Validação de Formulários**: Feedback em tempo real com mensagens de erro inline e botões de ação desabilitados para dados inválidos.
-- **Rotas Protegidas**: Uso de Context API para garantir que apenas usuários autenticados acessem o conteúdo principal.
-- **Persistência de Sessão**: Integração com `AsyncStorage` para manter o usuário logado mesmo após fechar o app.
-
-### 🎨 Diferencial Técnico: Tema Dinâmico (Dark Mode)
-- **Theme Context**: Implementação de um gerenciador de temas global que permite alternar entre os modos Claro e Escuro.
-- **Paleta Premium**: Cores cuidadosamente selecionadas para garantir acessibilidade e uma estética moderna em ambos os temas.
-- **Persistência de Preferência**: O tema escolhido pelo usuário é salvo localmente.
-
-### 📋 Requisitos Técnicos Atendidos
-- [x] **Context API**: Gerenciamento de estado de autenticação e temas.
-- [x] **AsyncStorage**: Persistência de dados de usuários e preferências.
-- [x] **Expo Router**: Navegação avançada com grupos de rotas e proteção.
-- [x] **Validation**: Regras estritas para e-mail e senhas.
-- [x] **Clean Code**: Estrutura de pastas organizada e componentes reutilizáveis.
+**Desenvolvido por:**
+- **RM556319 Felipe Marques de Oliveira** (Desenvolvimento de UI/UX, Auth Logic e Theme Context)
+- **RM556309 Gabriel Barros** (Implementação de Autenticação, Persistência com AsyncStorage e Validações)
 
 ---
 
-## 👥 Desenvolvedores
-- **RM556319 Felipe Marques de Oliveira** (Dono do Projeto - Auth Logic, Theme Context, UI Polish)
-- **RM556309 Gabriel Barros** (Form Validation, AsyncStorage Integration, Navigation Logic)
+## O Projeto
+Nesta segunda fase do projeto, evoluímos a aplicação para um nível mais profissional, focando em segurança, persistência de dados e personalização da experiência do usuário. O app agora conta com um fluxo completo de acesso e permite que o usuário escolha o tema visual que melhor se adapta ao seu ambiente.
 
 ---
 
-## 📱 Telas do Aplicativo
+## Telas
 
 ### 1. Autenticação (Login e Registro)
-Interface moderna com validações inline e design intuitivo.
+Interface moderna com validações inline e design intuitivo para garantir que apenas alunos e professores cadastrados acessem a plataforma.
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/e12e94b0-08aa-48ed-b284-c60ae303805a" width="300" alt="Login Screen"/>
+  <img width="401" height="859" alt="Login e Cadastro" src="https://github.com/user-attachments/assets/5f42b6f5-f139-4f8e-8b84-c54154be9103" />
 </p>
 
-### 2. Tema Escuro (Diferencial)
-Visual premium adaptado para ambientes com pouca luz.
+### 2. Tema Escuro (Diferencial Técnico)
+Implementação de Dark Mode completo, permitindo uma visualização confortável em ambientes com pouca luz e economia de bateria em telas OLED.
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/6355a291-d164-4770-9edc-3f35433a56fe" width="300" alt="Dark Mode"/>
+  <img width="398" height="858" alt="Dark Mode" src="https://github.com/user-attachments/assets/00352303-c76e-41f0-9b17-ca17877858dc" />
 </p>
 
-### 3. Gestão de Reservas
-Fluxo completo de reserva e visualização de histórico.
+### 3. Gestão de Reservas e Detalhes
+Fluxo refinado de consulta, reserva e visualização de histórico, integrando o nome do usuário logado e persistindo suas escolhas.
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/40631e3c-fb53-471b-adf7-e0ddcdd9d1d2" width="300" alt="Reservas"/>
+  <img width="400" height="858" alt="Reservas" src="https://github.com/user-attachments/assets/cfc31773-ce89-45ce-8e2a-2d69b2be26d6" />
 </p>
 
 ---
 
-## 🛠️ Stack Tecnológica
-- **React Native** + **Expo** (v51+)
+## Funcionalidades Implementadas
+
+- **Sistema de Autenticação**: Fluxo completo de Login e Registro com suporte a múltiplos usuários.
+- **Validação de Formulários**: Feedback visual imediato para e-mails inválidos, senhas curtas e confirmação de senha incorreta.
+- **Rotas Protegidas**: Bloqueio de acesso às funcionalidades internas para usuários não autenticados via middleware de navegação.
+- **Personalização de Tema (Dark Mode)**: Alternância dinâmica entre temas Claro e Escuro, com persistência da preferência do usuário.
+- **Persistência com AsyncStorage**: Armazenamento local de credenciais e configurações de tema, mantendo a sessão ativa mesmo após fechar o app.
+- **Busca e Filtros Avançados**: Filtros por andar e status (Livre, Ocupada, Manutenção) totalmente integrados ao sistema de temas.
+- **Gerenciamento de Favoritos e Reservas**: Centralização de salas preferidas e agendamentos com feedback visual de sucesso/erro.
+
+---
+
+## Decisões Técnicas
+
+**Estrutura**:
+Organização escalável baseada em pastas via **Expo Router**, com separação clara entre:
+- `app/(auth)`: Grupo de rotas protegidas para autenticação.
+- `app/(tabs)`: Navegação principal por abas.
+- `context/`: Provedores de estado global (Auth e Theme).
+- `components/`: Componentes reutilizáveis e estilizados dinamicamente.
+
+**Hooks e Gerenciamento de Estado**:
+- **useContext (Auth & Theme)**: Centralização do estado de login e cores do aplicativo, eliminando o "prop drilling".
+- **useState e useEffect**: Controle de ciclos de vida, validações em tempo real e carregamento de dados do AsyncStorage.
+- **useRouter**: Navegação imperativa entre fluxos de autenticação e telas de salas.
+
+**Navegação**:
+- Combinação de **Stack Navigation** para o fluxo de autenticação e **Tab Navigation** para a área logada, garantindo uma transição fluida e segura.
+
+---
+
+## Stack Tecnológica
+- **React Native + Expo**
 - **Expo Router** (Navegação baseada em arquivos)
-- **Context API** (State Management)
-- **AsyncStorage** (Local Persistence)
-- **Ionicons** (Iconografia)
+- **Context API** (Gerenciamento de estado global)
+- **AsyncStorage** (Persistência local de dados)
+- **Ionicons** (Iconografia dinâmica)
 
 ---
 
-## ⚙️ Como Rodar o Projeto
+## Como Rodar o App
 1. Clone este repositório.
-2. Instale as dependências:
+2. No terminal, execute:
    ```bash
    npm install
    ```
-3. Inicie o Expo:
+3. Inicie o servidor do Expo:
    ```bash
    npx expo start
    ```
+   Execute o app em uma das opções abaixo:
+- Utilize o app **Expo Go** no seu celular (Scaneie o QR Code).
+- Pressione **a** para abrir no Android Studio (emulador Android).
+- Pressione **i** para abrir no iOS Simulator (apenas para macOS).
+- Pressione **w** para abrir a versão **Web** no navegador.
 
 ---
-*Projeto acadêmico desenvolvido para a FIAP - 2026*
+*Projeto acadêmico desenvolvido para a FIAP Professor Hercules - 2026*

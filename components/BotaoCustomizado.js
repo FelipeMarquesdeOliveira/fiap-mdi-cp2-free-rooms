@@ -37,24 +37,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginVertical: 8,
   },
-  buttonPrimary: {
-    backgroundColor: Colors.primary,
-  },
-  buttonSecondary: {
-    backgroundColor: 'transparent',
-    borderWidth: 2,
-    borderColor: Colors.primary,
-  },
   text: {
     fontSize: 16,
     fontWeight: 'bold',
   },
-  textPrimary: {
-    color: '#fff',
-  },
-  textSecondary: {
-    color: Colors.primary,
-  },
 });
 
 export default BotaoCustomizado;
+

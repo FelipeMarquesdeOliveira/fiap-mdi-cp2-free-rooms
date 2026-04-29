@@ -34,7 +34,7 @@ export const ThemeProvider = ({ children }) => {
   };
 
   const colors = theme === 'light' ? {
-    primary: '#ED1C24', // Vermelho FIAP
+    primary: '#eb1b5b', // Vermelho FIAP
     background: '#F2F2F7',
     surface: '#FFFFFF',
     text: '#000000',
@@ -50,7 +50,7 @@ export const ThemeProvider = ({ children }) => {
       manutencao: '#FF9800',
     }
   } : {
-    primary: '#FF3B30', // Red for dark mode
+    primary: '#eb1b5b', // Red for dark mode
     background: '#000000',
     surface: '#1C1C1E',
     text: '#FFFFFF',

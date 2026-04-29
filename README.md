@@ -36,7 +36,8 @@ Fluxo refinado de consulta, reserva e visualização de histórico, integrando o
 ### 4. Sistema de Reports
 Funcionalidade para reportar problemas em salas. Reports são exibidos em modal acessível pelo botão "Ver Reports", permitindo que apenas o autor remova seu próprio report.
 <p align="center">
-  <img width="400" height="858" alt="Reports" src="https://github.com/user-attachments/assets/placeholder-reports" />
+  <img width="430" height="858" alt="image" src="https://github.com/user-attachments/assets/8ff6f4ff-c1a2-47be-8dda-4f963b3f98ae" />
+  <img width="434" height="858" alt="image" src="https://github.com/user-attachments/assets/34662573-d1bf-4af5-a657-750174ca9c08" />
 </p>
 
 ---

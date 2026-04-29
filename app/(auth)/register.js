@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  View, 
-  Text, 
-  TextInput, 
-  TouchableOpacity, 
-  StyleSheet, 
-  KeyboardAvoidingView, 
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  StyleSheet,
+  KeyboardAvoidingView,
   Platform,
   ActivityIndicator,
   SafeAreaView,
-  ScrollView
+  ScrollView,
+  Modal
 } from 'react-native';
 import { useRouter } from 'expo-router';
 import { useAuth } from '../../context/AuthContext';
@@ -23,7 +24,8 @@ export default function Register() {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
-  
+  const [modalSuccessVisible, setModalSuccessVisible] = useState(false);
+
   const router = useRouter();
   const { signUp } = useAuth();
   const { colors } = useTheme();
@@ -69,8 +71,7 @@ export default function Register() {
     setIsLoading(false);
     
     if (result.success) {
-      alert('Conta criada com sucesso! Faça login.');
-      router.replace('/login');
+      setModalSuccessVisible(true);
     } else {
       setErrors({ general: result.message });
     }
@@ -170,9 +171,9 @@ export default function Register() {
               </View>
             )}
 
-            <TouchableOpacity 
+            <TouchableOpacity
               style={[
-                styles.button, 
+                styles.button,
                 { backgroundColor: isButtonDisabled ? colors.border : colors.primary }
               ]}
               onPress={handleRegister}
@@ -187,6 +188,27 @@ export default function Register() {
           </View>
         </ScrollView>
       </KeyboardAvoidingView>
+
+      <Modal animationType="fade" transparent={true} visible={modalSuccessVisible}>
+        <View style={styles.modalOverlay}>
+          <View style={[styles.modalContent, { backgroundColor: colors.surface }]}>
+            <Ionicons name="checkmark-circle" size={80} color={colors.success} />
+            <Text style={[styles.modalTitle, { color: colors.text }]}>Conta Criada!</Text>
+            <Text style={[styles.modalMessage, { color: colors.textSecondary }]}>
+              Sua conta foi criada com sucesso. Faça login para continuar.
+            </Text>
+            <TouchableOpacity
+              style={[styles.modalButton, { backgroundColor: colors.primary }]}
+              onPress={() => {
+                setModalSuccessVisible(false);
+                router.replace('/login');
+              }}
+            >
+              <Text style={styles.modalButtonText}>FAZER LOGIN</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
     </SafeAreaView>
   );
 }
@@ -273,5 +295,41 @@ const styles = StyleSheet.create({
     color: '#FFF',
     fontSize: 18,
     fontWeight: 'bold',
+  },
+  modalOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.6)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  modalContent: {
+    width: '85%',
+    borderRadius: 25,
+    padding: 30,
+    alignItems: 'center',
+    elevation: 10,
+  },
+  modalTitle: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginTop: 15,
+    marginBottom: 10,
+  },
+  modalMessage: {
+    fontSize: 16,
+    textAlign: 'center',
+    marginBottom: 25,
+  },
+  modalButton: {
+    paddingHorizontal: 30,
+    paddingVertical: 15,
+    borderRadius: 12,
+    width: '100%',
+    alignItems: 'center',
+  },
+  modalButtonText: {
+    color: '#fff',
+    fontWeight: 'bold',
+    fontSize: 16,
   },
 });

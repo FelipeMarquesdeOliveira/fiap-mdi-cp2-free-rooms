@@ -28,9 +28,15 @@ Implementação de Dark Mode completo, permitindo uma visualização confortáve
 </p>
 
 ### 3. Gestão de Reservas e Detalhes
-Fluxo refinado de consulta, reserva e visualização de histórico, integrando o nome do usuário logado e persistindo suas escolhas.
+Fluxo refinado de consulta, reserva e visualização de histórico, integrando o nome do usuário logado e persistindo suas escolhas. Sistema de bloqueio de horários impede reservas duplicadas.
 <p align="center">
   <img width="400" height="858" alt="Reservas" src="https://github.com/user-attachments/assets/cfc31773-ce89-45ce-8e2a-2d69b2be26d6" />
+</p>
+
+### 4. Sistema de Reports
+Funcionalidade para reportar problemas em salas. Reports são exibidos em modal acessível pelo botão "Ver Reports", permitindo que apenas o autor remova seu próprio report.
+<p align="center">
+  <img width="400" height="858" alt="Reports" src="https://github.com/user-attachments/assets/placeholder-reports" />
 </p>
 
 ---
@@ -44,6 +50,8 @@ Fluxo refinado de consulta, reserva e visualização de histórico, integrando o
 - **Persistência com AsyncStorage**: Armazenamento local de credenciais e configurações de tema, mantendo a sessão ativa mesmo após fechar o app.
 - **Busca e Filtros Avançados**: Filtros por andar e status (Livre, Ocupada, Manutenção) totalmente integrados ao sistema de temas.
 - **Gerenciamento de Favoritos e Reservas**: Centralização de salas preferidas e agendamentos com feedback visual de sucesso/erro.
+- **Sistema de Reserva com Bloqueio de Horários**: Ao reservar uma sala para um horário específico, o horário fica bloqueado com ícone de cadeado. Ao cancelar, o horário volta a ficar disponível para outros usuários.
+- **Sistema de Reports**: Permite reportar problemas em salas. Os reports podem ser visualizados clicando no botão "Ver Reports" e apenas o autor pode remover seus próprios reports.
 
 ---
 

@@ -21,7 +21,7 @@ Interface moderna com validações inline e design intuitivo para garantir que a
   <img width="401" height="859" alt="Login e Cadastro" src="https://github.com/user-attachments/assets/5f42b6f5-f139-4f8e-8b84-c54154be9103" />
 </p>
 
-### 2. Tema Escuro (Diferencial Técnico)
+### 2. Tema Escuro
 Implementação de Dark Mode completo, permitindo uma visualização confortável em ambientes com pouca luz e economia de bateria em telas OLED.
 <p align="center">
   <img width="398" height="858" alt="Dark Mode" src="https://github.com/user-attachments/assets/00352303-c76e-41f0-9b17-ca17877858dc" />
